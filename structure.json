@@ -1,0 +1,426 @@
+{
+  "meta": {
+    "updated": "2026-05-12",
+    "viewport": "1920x1080 (最大化 + 固定 DevTools)"
+  },
+
+  "tree": {
+    "id": "root",
+    "label": "根容器",
+    "selector": "#root > div > div > div.c3ecdb44",
+    "children": [
+      {
+        "id": "sidebar",
+        "label": "侧边栏",
+        "selector": "div.dc04ec1d",
+        "children": [
+          {
+            "id": "sidebar-inner",
+            "label": "侧边栏主容器",
+            "selector": "div.b8812f16.a2f3d50e",
+            "children": [
+              {
+                "id": "sidebar-inner-header",
+                "label": "顶部栏",
+                "selector": "div._262baab",
+                "children": [
+                  {
+                    "id": "sidebar-inner-header-logo",
+                    "label": "DeepSeek图标",
+                    "selector": "div.e066abb8"
+                  },
+                  {
+                    "id": "sidebar-inner-header-actions",
+                    "label": "头部操作按钮组",
+                    "selector": "div._23e1c55",
+                    "children": [
+                      {
+                        "id": "sidebar-inner-header-actions-search",
+                        "label": "搜索按钮",
+                        "selector": "div.d05a0287"
+                      },
+                      {
+                        "id": "sidebar-inner-header-actions-collapse",
+                        "label": "收起按钮",
+                        "selector": "div._7d1f5e2"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "sidebar-inner-history",
+                "label": "历史对话列表",
+                "selector": "div._3586175.ds-scroll-area",
+                "children": [
+                  {
+                    "id": "sidebar-inner-history-scroll",
+                    "label": "滚动容器",
+                    "selector": "div._6d215eb",
+                    "children": [
+                      {
+                        "id": "sidebar-inner-history-list",
+                        "label": "对话列表",
+                        "selector": "div._77cdc67._8a693f3"
+                      },
+                      {
+                        "id": "sidebar-inner-history-scrollmarker",
+                        "label": "滚动标记",
+                        "selector": "div.de3d058c"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "sidebar-inner-user",
+                "label": "用户信息",
+                "selector": "div._2afd28d",
+                "children": [
+                  {
+                    "id": "sidebar-inner-user-avatar",
+                    "label": "用户头像",
+                    "selector": "div.ede5bc47"
+                  },
+                  {
+                    "id": "sidebar-inner-user-name",
+                    "label": "用户名称",
+                    "selector": "div._9d8da05"
+                  },
+                  {
+                    "id": "sidebar-inner-user-settings",
+                    "label": "设置按钮(三点)",
+                    "selector": "div.ds-icon._39cc453"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "sidebar-handle",
+            "label": "收起的把手",
+            "selector": "div.ca6d4be1",
+            "children": [
+              {
+                "id": "sidebar-handle-icon",
+                "label": "展开图标(鲸鱼)",
+                "selector": "div._6acebc2"
+              },
+              {
+                "id": "sidebar-handle-actions",
+                "label": "操作按钮组",
+                "selector": "div.e5bf614e",
+                "children": [
+                  {
+                    "id": "sidebar-handle-actions-spacer",
+                    "label": "占位元素",
+                    "selector": "div.e5bf614e > div:nth-child(1)"
+                  },
+                  {
+                    "id": "sidebar-handle-actions-expand",
+                    "label": "展开按钮",
+                    "selector": "div.e5bf614e > div:nth-child(2)"
+                  },
+                  {
+                    "id": "sidebar-handle-actions-search",
+                    "label": "搜索按钮",
+                    "selector": "div.e5bf614e > div:nth-child(3)"
+                  },
+                  {
+                    "id": "sidebar-handle-actions-newchat",
+                    "label": "新建对话按钮",
+                    "selector": "div.e5bf614e > div:nth-child(4)"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "main-panel",
+        "label": "主面板",
+        "selector": "div._7780f2e"
+      }
+    ]
+  },
+
+  "states": {
+    "sidebar": [
+      {
+        "name": "展开",
+        "attrs": {
+          "classes": ["dc04ec1d"],
+          "width": 261,
+          "childCount": 1
+        }
+      },
+      {
+        "name": "收起",
+        "attrs": {
+          "classes": ["dc04ec1d", "a02af2e6"],
+          "width": 0,
+          "childCount": 2
+        }
+      }
+    ],
+
+    "sidebar-inner": [
+      {
+        "name": "展开",
+        "preconditions": { "sidebar": "展开" },
+        "attrs": {
+          "classes": ["b8812f16", "a2f3d50e"],
+          "width": 261,
+          "childCount": 4
+        }
+      },
+      {
+        "name": "隐藏",
+        "preconditions": { "sidebar": "收起" },
+        "attrs": {
+          "classes": ["b8812f16", "a2f3d50e", "_70b689f"],
+          "width": 0,
+          "childCount": 4
+        }
+      }
+    ],
+
+    "sidebar-inner-header": [
+      {
+        "name": "默认",
+        "attrs": {
+          "classes": ["_262baab"],
+          "width": 236,
+          "childCount": 2
+        }
+      }
+    ],
+
+    "sidebar-inner-header-logo": [
+      {
+        "name": "默认",
+        "attrs": {
+          "classes": ["e066abb8"],
+          "childCount": 1
+        }
+      }
+    ],
+
+    "sidebar-inner-header-actions": [
+      {
+        "name": "默认",
+        "attrs": {
+          "classes": ["_23e1c55"],
+          "childCount": 2
+        }
+      }
+    ],
+
+    "sidebar-inner-header-actions-search": [
+      {
+        "name": "默认",
+        "attrs": {
+          "classes": ["d05a0287", "ds-icon-button", "ds-icon-button--l", "ds-icon-button--sizing-icon"],
+          "childCount": 3
+        }
+      }
+    ],
+
+    "sidebar-inner-header-actions-collapse": [
+      {
+        "name": "默认",
+        "attrs": {
+          "classes": ["_7d1f5e2", "ds-icon-button", "ds-icon-button--l", "ds-icon-button--sizing-icon"],
+          "childCount": 3
+        }
+      }
+    ],
+
+    "sidebar-inner-history": [
+      {
+        "name": "默认",
+        "attrs": {
+          "classes": ["_3586175", "ds-scroll-area", "ds-scroll-area--show-on-focus-within"],
+          "width": 236,
+          "childCount": 3
+        }
+      }
+    ],
+
+    "sidebar-inner-history-scroll": [
+      {
+        "name": "默认",
+        "attrs": {
+          "classes": ["_6d215eb", "ds-scroll-area", "ds-scroll-area--show-on-focus-within"],
+          "childCount": 2
+        }
+      }
+    ],
+
+    "sidebar-inner-history-list": [
+      {
+        "name": "默认",
+        "attrs": {
+          "classes": ["_77cdc67", "_8a693f3"],
+          "childCount": 9
+        }
+      }
+    ],
+
+    "sidebar-inner-history-scrollmarker": [
+      {
+        "name": "默认",
+        "attrs": {
+          "classes": ["de3d058c"],
+          "childCount": 0
+        }
+      }
+    ],
+
+    "sidebar-inner-user": [
+      {
+        "name": "默认",
+        "attrs": {
+          "classes": ["_2afd28d"],
+          "width": 236,
+          "childCount": 4
+        }
+      }
+    ],
+
+    "sidebar-inner-user-avatar": [
+      {
+        "name": "默认",
+        "attrs": {
+          "classes": ["ede5bc47"],
+          "childCount": 1
+        }
+      }
+    ],
+
+    "sidebar-inner-user-name": [
+      {
+        "name": "默认",
+        "attrs": {
+          "classes": ["_9d8da05"],
+          "childCount": 0
+        }
+      }
+    ],
+
+    "sidebar-inner-user-settings": [
+      {
+        "name": "默认",
+        "attrs": {
+          "classes": ["ds-icon", "_39cc453"],
+          "childCount": 1
+        }
+      }
+    ],
+
+    "sidebar-handle": [
+      {
+        "name": "可见",
+        "preconditions": { "sidebar": "收起" },
+        "attrs": {
+          "classes": ["ca6d4be1", "_5a20a69"],
+          "width": 157,
+          "childCount": 2
+        }
+      }
+    ],
+
+    "sidebar-handle-icon": [
+      {
+        "name": "可见",
+        "preconditions": { "sidebar": "收起" },
+        "attrs": {
+          "classes": ["_6acebc2"],
+          "childCount": 1
+        }
+      }
+    ],
+
+    "sidebar-handle-actions": [
+      {
+        "name": "可见",
+        "preconditions": { "sidebar": "收起" },
+        "attrs": {
+          "classes": ["e5bf614e"],
+          "width": 114,
+          "childCount": 4
+        }
+      }
+    ],
+
+    "sidebar-handle-actions-spacer": [
+      {
+        "name": "可见",
+        "preconditions": { "sidebar": "收起" },
+        "attrs": {
+          "width": 1,
+          "childCount": 0
+        }
+      }
+    ],
+
+    "sidebar-handle-actions-expand": [
+      {
+        "name": "可见",
+        "preconditions": { "sidebar": "收起" },
+        "note": "与搜索/新建按钮 class 及 HTML 结构完全相同(均为 div._4f3769f.ds-icon-button.ds-icon-button--l.ds-icon-button--sizing-container > div.ds-icon > svg)，无法通过 class 区分。\n标识方法(按稳定性排序):\n① pathD: M9.67272 0.522841...\n② SVG 属性: viewBox=0 0 16 16 width=16 height=16\n③ selector: div.e5bf614e > div:nth-child(2)",
+        "attrs": {
+          "classes": ["_4f3769f", "ds-icon-button", "ds-icon-button--l", "ds-icon-button--sizing-container"],
+          "width": 34,
+          "childCount": 3
+        }
+      }
+    ],
+
+    "sidebar-handle-actions-search": [
+      {
+        "name": "可见",
+        "preconditions": { "sidebar": "收起" },
+        "note": "与展开/新建按钮 class 及 HTML 结构完全相同(均为 div._4f3769f.ds-icon-button.ds-icon-button--l.ds-icon-button--sizing-container > div.ds-icon > svg)，无法通过 class 区分。\n标识方法(按稳定性排序):\n① pathD(2条): M11.894845 6.647401... / M16.000417 15.041079...\n② SVG 属性: viewBox=0 0 16 16 width=16 height=16\n③ selector: div.e5bf614e > div:nth-child(3)",
+        "attrs": {
+          "classes": ["_4f3769f", "ds-icon-button", "ds-icon-button--l", "ds-icon-button--sizing-container"],
+          "width": 34,
+          "childCount": 3
+        }
+      }
+    ],
+
+    "sidebar-handle-actions-newchat": [
+      {
+        "name": "可见",
+        "preconditions": { "sidebar": "收起" },
+        "note": "与展开/搜索按钮 class 及 HTML 结构完全相同(均为 div._4f3769f.ds-icon-button.ds-icon-button--l.ds-icon-button--sizing-container > div.ds-icon > svg)，无法通过 class 区分。\n标识方法(按稳定性排序):\n① pathD: M8 0.599609...\n② SVG 属性: viewBox=0 0 16 16 width=16 height=16\n③ selector: div.e5bf614e > div:nth-child(4)",
+        "attrs": {
+          "classes": ["_4f3769f", "ds-icon-button", "ds-icon-button--l", "ds-icon-button--sizing-container"],
+          "width": 34,
+          "childCount": 3
+        }
+      }
+    ],
+
+    "main-panel": [
+      {
+        "name": "侧边栏展开时",
+        "preconditions": { "sidebar": "展开" },
+        "attrs": {
+          "x": 261,
+          "width": 995
+        }
+      },
+      {
+        "name": "侧边栏收起时",
+        "preconditions": { "sidebar": "收起" },
+        "attrs": {
+          "x": 0,
+          "width": 1256
+        }
+      }
+    ]
+  }
+}
