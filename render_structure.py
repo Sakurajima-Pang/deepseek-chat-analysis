@@ -86,7 +86,10 @@ def main():
         entries = states.get(pid)
         if not entries:
             continue
-        md.append(f"### {pid}  — {plabel}")
+        role = entries[0].get("role", "")
+        role_text = f"  <i>角色: {role}</i>" if role else ""
+
+        md.append(f"### {pid}  — {plabel}{role_text}")
         md.append("")
         md.append(f"| 状态 | 前置条件 | 特征 | 备注 |")
         md.append(f"|------|----------|------|------|")

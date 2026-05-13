@@ -1,7 +1,8 @@
 {
   "meta": {
-    "updated": "2026-05-12",
-    "viewport": "1920x1080 (最大化 + 固定 DevTools)"
+    "updated": "2026-05-13",
+    "viewport": "实际窗口大小（由用户手动最大化决定）",
+    "note": "结构数据由人工定位 + Playwright DOM 验证生成。位置信息不依赖固定视口。"
   },
 
   "tree": {
@@ -149,6 +150,7 @@
     "sidebar": [
       {
         "name": "展开",
+        "role": "侧边栏整体展开，允许用户查看历史对话和操作",
         "attrs": {
           "classes": ["dc04ec1d"],
           "width": 261,
@@ -157,6 +159,7 @@
       },
       {
         "name": "收起",
+        "role": "侧边栏收起，仅保留操作按钮区域",
         "attrs": {
           "classes": ["dc04ec1d", "a02af2e6"],
           "width": 0,
@@ -168,6 +171,7 @@
     "sidebar-inner": [
       {
         "name": "展开",
+        "role": "承载全部侧边栏内容（顶部栏+历史列表+用户信息），依赖sidebar=展开",
         "preconditions": { "sidebar": "展开" },
         "attrs": {
           "classes": ["b8812f16", "a2f3d50e"],
@@ -177,6 +181,7 @@
       },
       {
         "name": "隐藏",
+        "role": "sidebar收起时内容被遮挡（width=0），结构仍在DOM中",
         "preconditions": { "sidebar": "收起" },
         "attrs": {
           "classes": ["b8812f16", "a2f3d50e", "_70b689f"],
@@ -189,37 +194,31 @@
     "sidebar-inner-header": [
       {
         "name": "默认",
-        "attrs": {
-          "classes": ["_262baab"],
-          "width": 236,
-          "childCount": 2
-        }
+        "role": "顶部栏：品牌logo + 搜索/收起按钮",
+        "attrs": { "classes": ["_262baab"], "width": 236, "childCount": 2 }
       }
     ],
 
     "sidebar-inner-header-logo": [
       {
         "name": "默认",
-        "attrs": {
-          "classes": ["e066abb8"],
-          "childCount": 1
-        }
+        "role": "DeepSeek品牌图标（鲸鱼+文字），鼠标pointer。上下文相关行为：无活跃对话时点击无效果；有活跃对话时等价于「开启新对话」按钮",
+        "attrs": { "classes": ["e066abb8"], "childCount": 1 }
       }
     ],
 
     "sidebar-inner-header-actions": [
       {
         "name": "默认",
-        "attrs": {
-          "classes": ["_23e1c55"],
-          "childCount": 2
-        }
+        "role": "头部操作按钮容器，包含搜索和收起两个按钮",
+        "attrs": { "classes": ["_23e1c55"], "childCount": 2 }
       }
     ],
 
     "sidebar-inner-header-actions-search": [
       {
         "name": "默认",
+        "role": "打开对话搜索面板（带放大镜图标）",
         "attrs": {
           "classes": ["d05a0287", "ds-icon-button", "ds-icon-button--l", "ds-icon-button--sizing-icon"],
           "childCount": 3
@@ -230,6 +229,7 @@
     "sidebar-inner-header-actions-collapse": [
       {
         "name": "默认",
+        "role": "收起侧边栏（带侧边栏图标）",
         "attrs": {
           "classes": ["_7d1f5e2", "ds-icon-button", "ds-icon-button--l", "ds-icon-button--sizing-icon"],
           "childCount": 3
@@ -240,6 +240,7 @@
     "sidebar-inner-history": [
       {
         "name": "默认",
+        "role": "可滚动区域，展示按日期分组的聊天列表",
         "attrs": {
           "classes": ["_3586175", "ds-scroll-area", "ds-scroll-area--show-on-focus-within"],
           "width": 236,
@@ -251,6 +252,7 @@
     "sidebar-inner-history-scroll": [
       {
         "name": "默认",
+        "role": "内部滚动容器：承载对话列表节点 + 滚动条",
         "attrs": {
           "classes": ["_6d215eb", "ds-scroll-area", "ds-scroll-area--show-on-focus-within"],
           "childCount": 2
@@ -261,115 +263,93 @@
     "sidebar-inner-history-list": [
       {
         "name": "默认",
-        "attrs": {
-          "classes": ["_77cdc67", "_8a693f3"],
-          "childCount": 9
-        }
+        "role": "按日期分组的对话条目列表（如'今天'、'昨天'、'7天内'等），内容量不定",
+        "attrs": { "classes": ["_77cdc67", "_8a693f3"], "childCount": 9 }
       }
     ],
 
     "sidebar-inner-history-scrollmarker": [
       {
         "name": "默认",
-        "attrs": {
-          "classes": ["de3d058c"],
-          "childCount": 0
-        }
+        "role": "滚动条底部的空标记div，无可见内容",
+        "attrs": { "classes": ["de3d058c"], "childCount": 0 }
       }
     ],
 
     "sidebar-inner-user": [
       {
         "name": "默认",
-        "attrs": {
-          "classes": ["_2afd28d"],
-          "width": 236,
-          "childCount": 4
-        }
+        "role": "底部用户信息区：头像 + 用户名 + 设置入口",
+        "attrs": { "classes": ["_2afd28d"], "width": 236, "childCount": 4 }
       }
     ],
 
     "sidebar-inner-user-avatar": [
       {
         "name": "默认",
-        "attrs": {
-          "classes": ["ede5bc47"],
-          "childCount": 1
-        }
+        "role": "用户头像图片",
+        "attrs": { "classes": ["ede5bc47"], "childCount": 1 }
       }
     ],
 
     "sidebar-inner-user-name": [
       {
         "name": "默认",
-        "attrs": {
-          "classes": ["_9d8da05"],
-          "childCount": 0
-        }
+        "role": "显示用户名文本（如'吉吉国王'），不可交互",
+        "attrs": { "classes": ["_9d8da05"], "childCount": 0 }
       }
     ],
 
     "sidebar-inner-user-settings": [
       {
         "name": "默认",
-        "attrs": {
-          "classes": ["ds-icon", "_39cc453"],
-          "childCount": 1
-        }
+        "role": "三点设置按钮，hover时显示设置弹出框",
+        "attrs": { "classes": ["ds-icon", "_39cc453"], "childCount": 1 }
       }
     ],
 
     "sidebar-handle": [
       {
         "name": "可见",
+        "role": "侧边栏收起时出现的替代操作区（鲸鱼图标 + 3个快捷按钮）",
         "preconditions": { "sidebar": "收起" },
-        "attrs": {
-          "classes": ["ca6d4be1", "_5a20a69"],
-          "width": 157,
-          "childCount": 2
-        }
+        "attrs": { "classes": ["ca6d4be1", "_5a20a69"], "width": 157, "childCount": 2 }
       }
     ],
 
     "sidebar-handle-icon": [
       {
         "name": "可见",
+        "role": "展开图标（鲸鱼），点击侧边栏展开，功能与展开按钮重复",
         "preconditions": { "sidebar": "收起" },
-        "attrs": {
-          "classes": ["_6acebc2"],
-          "childCount": 1
-        }
+        "attrs": { "classes": ["_6acebc2"], "childCount": 1 }
       }
     ],
 
     "sidebar-handle-actions": [
       {
         "name": "可见",
+        "role": "收起状态下的快捷按钮组（含占位+展开+搜索+新建对话）",
         "preconditions": { "sidebar": "收起" },
-        "attrs": {
-          "classes": ["e5bf614e"],
-          "width": 114,
-          "childCount": 4
-        }
+        "attrs": { "classes": ["e5bf614e"], "width": 114, "childCount": 4 }
       }
     ],
 
     "sidebar-handle-actions-spacer": [
       {
         "name": "可见",
+        "role": "结构占位元素，无功能",
         "preconditions": { "sidebar": "收起" },
-        "attrs": {
-          "width": 1,
-          "childCount": 0
-        }
+        "attrs": { "width": 1, "childCount": 0 }
       }
     ],
 
     "sidebar-handle-actions-expand": [
       {
         "name": "可见",
+        "role": "展开按钮（侧边栏箭头图标），与鲸鱼图标点击效果相同",
         "preconditions": { "sidebar": "收起" },
-        "note": "与搜索/新建按钮 class 及 HTML 结构完全相同(均为 div._4f3769f.ds-icon-button.ds-icon-button--l.ds-icon-button--sizing-container > div.ds-icon > svg)，无法通过 class 区分。\n标识方法(按稳定性排序):\n① pathD: M9.67272 0.522841...\n② SVG 属性: viewBox=0 0 16 16 width=16 height=16\n③ selector: div.e5bf614e > div:nth-child(2)",
+        "note": "与搜索/新建按钮 class 及 HTML 结构完全相同(均为 div._4f3769f.ds-icon-button.ds-icon-button--l.ds-icon-button--sizing-container > div.ds-icon > svg)，无法仅通过 class 区分。\n标识方法(按稳定性排序):\n① pathD: M9.67272 0.522841...\n② SVG 属性: viewBox=0 0 16 16 width=16 height=16\n③ selector 位置: div.e5bf614e > div:nth-child(2)",
         "attrs": {
           "classes": ["_4f3769f", "ds-icon-button", "ds-icon-button--l", "ds-icon-button--sizing-container"],
           "width": 34,
@@ -381,8 +361,9 @@
     "sidebar-handle-actions-search": [
       {
         "name": "可见",
+        "role": "对话搜索按钮（收起状态下替代顶部栏搜索按钮）",
         "preconditions": { "sidebar": "收起" },
-        "note": "与展开/新建按钮 class 及 HTML 结构完全相同(均为 div._4f3769f.ds-icon-button.ds-icon-button--l.ds-icon-button--sizing-container > div.ds-icon > svg)，无法通过 class 区分。\n标识方法(按稳定性排序):\n① pathD(2条): M11.894845 6.647401... / M16.000417 15.041079...\n② SVG 属性: viewBox=0 0 16 16 width=16 height=16\n③ selector: div.e5bf614e > div:nth-child(3)",
+        "note": "与展开/新建按钮 class 及 HTML 结构完全相同(均为 div._4f3769f.ds-icon-button.ds-icon-button--l.ds-icon-button--sizing-container > div.ds-icon > svg)，无法仅通过 class 区分。\n标识方法(按稳定性排序):\n① pathD(2条): M11.894845 6.647401... / M16.000417 15.041079...\n② SVG 属性: viewBox=0 0 16 16 width=16 height=16\n③ selector 位置: div.e5bf614e > div:nth-child(3)",
         "attrs": {
           "classes": ["_4f3769f", "ds-icon-button", "ds-icon-button--l", "ds-icon-button--sizing-container"],
           "width": 34,
@@ -394,8 +375,9 @@
     "sidebar-handle-actions-newchat": [
       {
         "name": "可见",
+        "role": "新建对话按钮（收起状态下创建新对话）",
         "preconditions": { "sidebar": "收起" },
-        "note": "与展开/搜索按钮 class 及 HTML 结构完全相同(均为 div._4f3769f.ds-icon-button.ds-icon-button--l.ds-icon-button--sizing-container > div.ds-icon > svg)，无法通过 class 区分。\n标识方法(按稳定性排序):\n① pathD: M8 0.599609...\n② SVG 属性: viewBox=0 0 16 16 width=16 height=16\n③ selector: div.e5bf614e > div:nth-child(4)",
+        "note": "与展开/搜索按钮 class 及 HTML 结构完全相同(均为 div._4f3769f.ds-icon-button.ds-icon-button--l.ds-icon-button--sizing-container > div.ds-icon > svg)，无法仅通过 class 区分。\n标识方法(按稳定性排序):\n① pathD: M8 0.599609...\n② SVG 属性: viewBox=0 0 16 16 width=16 height=16\n③ selector 位置: div.e5bf614e > div:nth-child(4)",
         "attrs": {
           "classes": ["_4f3769f", "ds-icon-button", "ds-icon-button--l", "ds-icon-button--sizing-container"],
           "width": 34,
@@ -407,19 +389,15 @@
     "main-panel": [
       {
         "name": "侧边栏展开时",
+        "role": "聊天内容展示区，位置在侧边栏右侧",
         "preconditions": { "sidebar": "展开" },
-        "attrs": {
-          "x": 261,
-          "width": 995
-        }
+        "attrs": { "x": 261, "width": 995 }
       },
       {
         "name": "侧边栏收起时",
+        "role": "聊天内容展示区，全屏展示（侧边栏收起后占满）",
         "preconditions": { "sidebar": "收起" },
-        "attrs": {
-          "x": 0,
-          "width": 1256
-        }
+        "attrs": { "x": 0, "width": 1256 }
       }
     ]
   }
