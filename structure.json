@@ -1,8 +1,8 @@
 {
   "meta": {
     "updated": "2026-05-13",
-    "viewport": "实际窗口大小（由用户手动最大化决定）",
-    "note": "结构数据由人工定位 + Playwright DOM 验证生成。位置信息不依赖固定视口。"
+    "viewport": "实际窗口大小（由用户手动最大化决定，1920x1080为参考）",
+    "note": "结构数据由人工定位 + Playwright DOM 验证生成。宽度/x/y 等位置信息不跨视口通用，仅 class/childCount 可跨视口依赖。"
   },
 
   "tree": {
@@ -141,7 +141,58 @@
       {
         "id": "main-panel",
         "label": "主面板",
-        "selector": "div._7780f2e"
+        "selector": "div._7780f2e",
+        "children": [
+          {
+            "id": "main-content",
+            "label": "主内容容器",
+            "selector": "div._765a5cd",
+            "children": [
+              {
+                "id": "main-content-title",
+                "label": "标题栏",
+                "selector": "div._2be88ba"
+              },
+              {
+                "id": "main-content-scrollbar",
+                "label": "滚动条占位",
+                "selector": "div.ds-scroll-area__gutters"
+              },
+              {
+                "id": "main-content-list",
+                "label": "主要交互界面",
+                "selector": "div._2bd7b35.ds-virtual-list.ds-virtual-list--printable",
+                "children": [
+                  {
+                    "id": "main-content-messages",
+                    "label": "对话消息列表",
+                    "selector": "div.ds-virtual-list-items._6f2c522"
+                  },
+                  {
+                    "id": "main-content-gap",
+                    "label": "间隔条",
+                    "selector": "div:nth-child(2)"
+                  },
+                  {
+                    "id": "main-content-input",
+                    "label": "输入面板",
+                    "selector": "div._871cbca"
+                  }
+                ]
+              },
+              {
+                "id": "main-content-quicknav",
+                "label": "快速定位列表",
+                "selector": "div._189b4a0"
+              },
+              {
+                "id": "main-content-welcome",
+                "label": "欢迎界面",
+                "selector": "div._660ca72"
+              }
+            ]
+          }
+        ]
       }
     ]
   },
@@ -151,20 +202,12 @@
       {
         "name": "展开",
         "role": "侧边栏整体展开，允许用户查看历史对话和操作",
-        "attrs": {
-          "classes": ["dc04ec1d"],
-          "width": 261,
-          "childCount": 1
-        }
+        "attrs": { "classes": ["dc04ec1d"], "width": 261, "childCount": 1 }
       },
       {
         "name": "收起",
         "role": "侧边栏收起，仅保留操作按钮区域",
-        "attrs": {
-          "classes": ["dc04ec1d", "a02af2e6"],
-          "width": 0,
-          "childCount": 2
-        }
+        "attrs": { "classes": ["dc04ec1d", "a02af2e6"], "width": 0, "childCount": 2 }
       }
     ],
 
@@ -173,21 +216,13 @@
         "name": "展开",
         "role": "承载全部侧边栏内容（顶部栏+历史列表+用户信息），依赖sidebar=展开",
         "preconditions": { "sidebar": "展开" },
-        "attrs": {
-          "classes": ["b8812f16", "a2f3d50e"],
-          "width": 261,
-          "childCount": 4
-        }
+        "attrs": { "classes": ["b8812f16", "a2f3d50e"], "width": 261, "childCount": 4 }
       },
       {
         "name": "隐藏",
         "role": "sidebar收起时内容被遮挡（width=0），结构仍在DOM中",
         "preconditions": { "sidebar": "收起" },
-        "attrs": {
-          "classes": ["b8812f16", "a2f3d50e", "_70b689f"],
-          "width": 0,
-          "childCount": 4
-        }
+        "attrs": { "classes": ["b8812f16", "a2f3d50e", "_70b689f"], "width": 0, "childCount": 4 }
       }
     ],
 
@@ -219,10 +254,7 @@
       {
         "name": "默认",
         "role": "打开对话搜索面板（带放大镜图标）",
-        "attrs": {
-          "classes": ["d05a0287", "ds-icon-button", "ds-icon-button--l", "ds-icon-button--sizing-icon"],
-          "childCount": 3
-        }
+        "attrs": { "classes": ["d05a0287", "ds-icon-button", "ds-icon-button--l", "ds-icon-button--sizing-icon"], "childCount": 3 }
       }
     ],
 
@@ -230,10 +262,7 @@
       {
         "name": "默认",
         "role": "收起侧边栏（带侧边栏图标）",
-        "attrs": {
-          "classes": ["_7d1f5e2", "ds-icon-button", "ds-icon-button--l", "ds-icon-button--sizing-icon"],
-          "childCount": 3
-        }
+        "attrs": { "classes": ["_7d1f5e2", "ds-icon-button", "ds-icon-button--l", "ds-icon-button--sizing-icon"], "childCount": 3 }
       }
     ],
 
@@ -241,11 +270,7 @@
       {
         "name": "默认",
         "role": "可滚动区域，展示按日期分组的聊天列表",
-        "attrs": {
-          "classes": ["_3586175", "ds-scroll-area", "ds-scroll-area--show-on-focus-within"],
-          "width": 236,
-          "childCount": 3
-        }
+        "attrs": { "classes": ["_3586175", "ds-scroll-area", "ds-scroll-area--show-on-focus-within"], "width": 236, "childCount": 3 }
       }
     ],
 
@@ -253,10 +278,7 @@
       {
         "name": "默认",
         "role": "内部滚动容器：承载对话列表节点 + 滚动条",
-        "attrs": {
-          "classes": ["_6d215eb", "ds-scroll-area", "ds-scroll-area--show-on-focus-within"],
-          "childCount": 2
-        }
+        "attrs": { "classes": ["_6d215eb", "ds-scroll-area", "ds-scroll-area--show-on-focus-within"], "childCount": 2 }
       }
     ],
 
@@ -311,7 +333,7 @@
     "sidebar-handle": [
       {
         "name": "可见",
-        "role": "侧边栏收起时出现的替代操作区（鲸鱼图标 + 3个快捷按钮）",
+        "role": "侧边栏收起时出现的替代操作区（鲸鱼图标 + 快捷按钮）",
         "preconditions": { "sidebar": "收起" },
         "attrs": { "classes": ["ca6d4be1", "_5a20a69"], "width": 157, "childCount": 2 }
       }
@@ -320,7 +342,7 @@
     "sidebar-handle-icon": [
       {
         "name": "可见",
-        "role": "展开图标（鲸鱼），点击侧边栏展开，功能与展开按钮重复",
+        "role": "展开图标（鲸鱼），点击展开侧边栏，功能与展开按钮重复",
         "preconditions": { "sidebar": "收起" },
         "attrs": { "classes": ["_6acebc2"], "childCount": 1 }
       }
@@ -329,7 +351,7 @@
     "sidebar-handle-actions": [
       {
         "name": "可见",
-        "role": "收起状态下的快捷按钮组（含占位+展开+搜索+新建对话）",
+        "role": "收起状态下的快捷按钮组，含占位+展开+搜索+新建对话",
         "preconditions": { "sidebar": "收起" },
         "attrs": { "classes": ["e5bf614e"], "width": 114, "childCount": 4 }
       }
@@ -350,11 +372,7 @@
         "role": "展开按钮（侧边栏箭头图标），与鲸鱼图标点击效果相同",
         "preconditions": { "sidebar": "收起" },
         "note": "与搜索/新建按钮 class 及 HTML 结构完全相同(均为 div._4f3769f.ds-icon-button.ds-icon-button--l.ds-icon-button--sizing-container > div.ds-icon > svg)，无法仅通过 class 区分。\n标识方法(按稳定性排序):\n① pathD: M9.67272 0.522841...\n② SVG 属性: viewBox=0 0 16 16 width=16 height=16\n③ selector 位置: div.e5bf614e > div:nth-child(2)",
-        "attrs": {
-          "classes": ["_4f3769f", "ds-icon-button", "ds-icon-button--l", "ds-icon-button--sizing-container"],
-          "width": 34,
-          "childCount": 3
-        }
+        "attrs": { "classes": ["_4f3769f", "ds-icon-button", "ds-icon-button--l", "ds-icon-button--sizing-container"], "width": 34, "childCount": 3 }
       }
     ],
 
@@ -364,11 +382,7 @@
         "role": "对话搜索按钮（收起状态下替代顶部栏搜索按钮）",
         "preconditions": { "sidebar": "收起" },
         "note": "与展开/新建按钮 class 及 HTML 结构完全相同(均为 div._4f3769f.ds-icon-button.ds-icon-button--l.ds-icon-button--sizing-container > div.ds-icon > svg)，无法仅通过 class 区分。\n标识方法(按稳定性排序):\n① pathD(2条): M11.894845 6.647401... / M16.000417 15.041079...\n② SVG 属性: viewBox=0 0 16 16 width=16 height=16\n③ selector 位置: div.e5bf614e > div:nth-child(3)",
-        "attrs": {
-          "classes": ["_4f3769f", "ds-icon-button", "ds-icon-button--l", "ds-icon-button--sizing-container"],
-          "width": 34,
-          "childCount": 3
-        }
+        "attrs": { "classes": ["_4f3769f", "ds-icon-button", "ds-icon-button--l", "ds-icon-button--sizing-container"], "width": 34, "childCount": 3 }
       }
     ],
 
@@ -378,18 +392,14 @@
         "role": "新建对话按钮（收起状态下创建新对话）",
         "preconditions": { "sidebar": "收起" },
         "note": "与展开/搜索按钮 class 及 HTML 结构完全相同(均为 div._4f3769f.ds-icon-button.ds-icon-button--l.ds-icon-button--sizing-container > div.ds-icon > svg)，无法仅通过 class 区分。\n标识方法(按稳定性排序):\n① pathD: M8 0.599609...\n② SVG 属性: viewBox=0 0 16 16 width=16 height=16\n③ selector 位置: div.e5bf614e > div:nth-child(4)",
-        "attrs": {
-          "classes": ["_4f3769f", "ds-icon-button", "ds-icon-button--l", "ds-icon-button--sizing-container"],
-          "width": 34,
-          "childCount": 3
-        }
+        "attrs": { "classes": ["_4f3769f", "ds-icon-button", "ds-icon-button--l", "ds-icon-button--sizing-container"], "width": 34, "childCount": 3 }
       }
     ],
 
     "main-panel": [
       {
         "name": "侧边栏展开时",
-        "role": "聊天内容展示区，位置在侧边栏右侧",
+        "role": "聊天内容展示区，位置在侧边栏右侧。内部内容取决于会话状态（已有会话 or 新建会话）",
         "preconditions": { "sidebar": "展开" },
         "attrs": { "x": 261, "width": 995 }
       },
@@ -398,6 +408,91 @@
         "role": "聊天内容展示区，全屏展示（侧边栏收起后占满）",
         "preconditions": { "sidebar": "收起" },
         "attrs": { "x": 0, "width": 1256 }
+      }
+    ],
+
+    "main-content": [
+      {
+        "name": "已有会话",
+        "role": "主内容容器，承载标题栏+滚动历史+输入面板。childCount=4 时为此状态",
+        "childCount": 4
+      },
+      {
+        "name": "新建会话",
+        "role": "欢迎/模式选择界面，childCount=1 时为此状态。仅含标题栏和欢迎面板",
+        "childCount": 1
+      }
+    ],
+
+    "main-content-title": [
+      {
+        "name": "已有会话",
+        "role": "已有会话的标题栏，显示会话名称和操作按钮",
+        "selector_note": "class=_2be88ba",
+        "attrs": { "classes": ["_2be88ba"], "width": 995, "height": 60, "childCount": 3 }
+      },
+      {
+        "name": "新建会话",
+        "role": "新建会话的标题栏（样式略有不同，多 _1551317 class）",
+        "selector_note": "class=_2be88ba._1551317",
+        "attrs": { "classes": ["_2be88ba", "_1551317"], "width": 995, "height": 60, "childCount": 2 }
+      }
+    ],
+
+    "main-content-scrollbar": [
+      {
+        "name": "可见",
+        "role": "滚动条轨道，仅在已有会话（可滚动历史列表时）出现",
+        "attrs": { "classes": ["ds-scroll-area__gutters"], "childCount": 2 }
+      }
+    ],
+
+    "main-content-list": [
+      {
+        "name": "可见",
+        "role": "虚拟列表，主要交互界面，承载所有对话消息和底部输入面板",
+        "attrs": { "classes": ["_2bd7b35", "ds-virtual-list", "ds-virtual-list--printable"], "width": 995, "height": 841, "childCount": 3 }
+      }
+    ],
+
+    "main-content-messages": [
+      {
+        "name": "可见",
+        "role": "按日期分组的对话消息容器，内含所有用户消息和LLM回复。高度随内容动态增长",
+        "attrs": { "classes": ["ds-virtual-list-items", "_6f2c522"], "width": 907, "childCount": 1 }
+      }
+    ],
+
+    "main-content-gap": [
+      {
+        "name": "可见",
+        "role": "消息列表和输入面板之间的空间隔条（占位），无可见内容",
+        "attrs": { "childCount": 0, "height": 24 }
+      }
+    ],
+
+    "main-content-input": [
+      {
+        "name": "可见",
+        "role": "输入面板区域，包含配置按钮、文件上传按钮和发送按钮等。详情待分析",
+        "attrs": { "classes": ["_871cbca"], "width": 931, "height": 152, "childCount": 3 }
+      }
+    ],
+
+    "main-content-quicknav": [
+      {
+        "name": "可见",
+        "role": "侧边快速导航条，hover时展开显示各条目的摘要内容。仅在已有会话时出现",
+        "attrs": { "classes": ["_189b4a0"], "width": 34, "childCount": 2 }
+      }
+    ],
+
+    "main-content-welcome": [
+      {
+        "name": "可见",
+        "role": "新建会话的欢迎/模式选择面板，包含快速模式、专家模式、深度思考、智能搜索等入口",
+        "preconditions": { "main-content": "新建会话" },
+        "attrs": { "classes": ["_660ca72"], "width": 995, "childCount": 2 }
       }
     ]
   }

@@ -34,7 +34,7 @@ def fmt_attrs(attrs):
         elif isinstance(v, bool):
             v = str(v)
         parts.append(f"{k}={v}")
-    return " | ".join(parts)
+    return " / ".join(parts)
 
 
 def fmt_preconditions(preconditions):
@@ -97,8 +97,12 @@ def main():
             name = st["name"]
             cond = fmt_preconditions(st.get("preconditions", {}))
             attr = fmt_attrs(st.get("attrs", {}))
-            note = st.get("note", "")
-            note_display = "⚠" if note else "-"
+            note_parts = []
+            if st.get("note"):
+                note_parts.append("! " + st["note"].split("\n")[0])
+            if st.get("selector_note"):
+                note_parts.append("sel: " + st["selector_note"])
+            note_display = " | ".join(note_parts) if note_parts else "-"
             md.append(f"| {name} | {cond} | {attr} | {note_display} |")
         md.append("")
         has_notes = any(st.get("note") for st in entries)
