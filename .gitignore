@@ -1,6 +1,1 @@
-# Python
-__pycache__/
-*.pyc
-
-# Playwright
-playwright_data/
+.playwright-mcp/
