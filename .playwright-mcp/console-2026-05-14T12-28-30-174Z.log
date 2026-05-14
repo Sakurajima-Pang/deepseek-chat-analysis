@@ -1,0 +1,2 @@
+[     507ms] [LOG] %c %s color: yellow; background-color: black; [instance: default] appid: 20006317, userInfo:{"user_unique_id":"ff42e6db-a485-4ae9-80ba-1c0cc4061a5b","web_id":"7638584634263066115"} @ https://lf3-data.volccdn.com/obj/data-static/log-sdk/collect/5.0/collect-rangers-v5.2.11.js:0
+[     507ms] [LOG] %c %s color: yellow; background-color: black; [instance: default] appid: 20006317, sdk is ready, version is 5.2.11_tob, you can report now !!! @ https://lf3-data.volccdn.com/obj/data-static/log-sdk/collect/5.0/collect-rangers-v5.2.11.js:0

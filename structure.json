@@ -131,8 +131,42 @@
     "main-content-editor-area": {
       "selector": "div._24fad49"
     },
+    "main-content-input-textarea": {
+      "selector": "textarea._27c9245",
+      "refs": {
+        "底部": { "classes": ["_27c9245", "ds-scroll-area", "ds-scroll-area--show-on-focus-within", "d96f2d2a"] },
+        "非底部": { "classes": ["_27c9245", "ds-scroll-area", "ds-scroll-area--show-on-focus-within"] }
+      }
+    },
+    "main-content-input-mirror": {
+      "selector": "div.b13855df"
+    },
     "main-content-bottom-bar": {
       "selector": "div.ec4f5d61"
+    },
+    "main-content-deep-think": {
+      "selector": "div.ec4f5d61 > div:nth-child(1)",
+      "refs": {
+        "开启": { "classes": ["ds-atom-button", "f79352dc", "ds-toggle-button", "ds-toggle-button--selected", "ds-toggle-button--md"] },
+        "关闭": { "classes": ["ds-atom-button", "f79352dc", "ds-toggle-button", "ds-toggle-button--md"] }
+      }
+    },
+    "main-content-search-toggle": {
+      "selector": "div.ec4f5d61 > div:nth-child(2)",
+      "refs": {
+        "开启": { "classes": ["ds-atom-button", "f79352dc", "ds-toggle-button", "ds-toggle-button--selected", "ds-toggle-button--md"] },
+        "关闭": { "classes": ["ds-atom-button", "f79352dc", "ds-toggle-button", "ds-toggle-button--md"] }
+      }
+    },
+    "main-content-send-area": {
+      "selector": "div.bf38813a"
+    },
+    "main-content-send-btn": {
+      "selector": "div.bf38813a [role=\"button\"]",
+      "refs": {
+        "可发送": { "classes": ["_52c986b", "ds-icon-button", "ds-icon-button--l", "ds-icon-button--sizing-container"] },
+        "不可发送": { "classes": ["_52c986b", "bd74640a", "ds-icon-button", "ds-icon-button--l", "ds-icon-button--sizing-container", "ds-icon-button--disabled"] }
+      }
     },
     "main-content-send-bar": {
       "selector": "div._0fcaa63"
@@ -171,7 +205,10 @@
         "main-content-input-panel": ["main-content-config-bar", "main-content-input-body", "main-content-send-bar"],
         "main-content-input-body": ["main-content-input-inner"],
         "main-content-input-inner": ["main-content-input-core"],
-        "main-content-input-core": ["main-content-editor-area", "main-content-bottom-bar"]
+        "main-content-input-core": ["main-content-editor-area", "main-content-bottom-bar"],
+        "main-content-editor-area": ["main-content-input-textarea", "main-content-input-mirror"],
+        "main-content-bottom-bar": ["main-content-deep-think", "main-content-search-toggle", "main-content-send-area"],
+        "main-content-send-area": ["main-content-send-btn"]
       }
     },
 
@@ -191,7 +228,10 @@
         "main-content-welcome-content": ["main-content-welcome-text", "main-content-mode-select", "main-content-input-body"],
         "main-content-input-body": ["main-content-input-inner"],
         "main-content-input-inner": ["main-content-input-core"],
-        "main-content-input-core": ["main-content-editor-area", "main-content-bottom-bar"]
+        "main-content-input-core": ["main-content-editor-area", "main-content-bottom-bar"],
+        "main-content-editor-area": ["main-content-input-textarea", "main-content-input-mirror"],
+        "main-content-bottom-bar": ["main-content-deep-think", "main-content-search-toggle", "main-content-send-area"],
+        "main-content-send-area": ["main-content-send-btn"]
       }
     },
 
@@ -213,7 +253,10 @@
         "main-content-input-panel": ["main-content-config-bar", "main-content-input-body", "main-content-send-bar"],
         "main-content-input-body": ["main-content-input-inner"],
         "main-content-input-inner": ["main-content-input-core"],
-        "main-content-input-core": ["main-content-editor-area", "main-content-bottom-bar"]
+        "main-content-input-core": ["main-content-editor-area", "main-content-bottom-bar"],
+        "main-content-editor-area": ["main-content-input-textarea", "main-content-input-mirror"],
+        "main-content-bottom-bar": ["main-content-deep-think", "main-content-search-toggle", "main-content-send-area"],
+        "main-content-send-area": ["main-content-send-btn"]
       }
     },
 
@@ -235,7 +278,10 @@
         "main-content-welcome-content": ["main-content-welcome-text", "main-content-mode-select", "main-content-input-body"],
         "main-content-input-body": ["main-content-input-inner"],
         "main-content-input-inner": ["main-content-input-core"],
-        "main-content-input-core": ["main-content-editor-area", "main-content-bottom-bar"]
+        "main-content-input-core": ["main-content-editor-area", "main-content-bottom-bar"],
+        "main-content-editor-area": ["main-content-input-textarea", "main-content-input-mirror"],
+        "main-content-bottom-bar": ["main-content-deep-think", "main-content-search-toggle", "main-content-send-area"],
+        "main-content-send-area": ["main-content-send-btn"]
       }
     }
   },
