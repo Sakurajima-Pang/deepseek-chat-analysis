@@ -1,182 +1,243 @@
 {
   "meta": {
     "updated": "2026-05-14",
-    "viewport": "实际窗口大小（由用户手动最大化决定，1920x1080为参考）"
+    "viewport": "实际窗口大小（由用户手动最大化决定，1920x1080为参考）",
+    "schema": "v3 — parts(零件字典) + scenes(场景树) + transitions(交互)"
   },
 
-  "tree": {
-    "id": "root",
-    "selector": "#root > div > div > div.c3ecdb44",
-    "children": [
-      {
-        "id": "sidebar",
-        "selector": "div.dc04ec1d",
-        "refs": {
-          "展开": { "classes": ["dc04ec1d"] },
-          "收起": { "classes": ["dc04ec1d", "a02af2e6"] }
-        },
-        "children": [
-          {
-            "id": "sidebar-inner",
-            "selector": "div.b8812f16.a2f3d50e",
-            "refs": {
-              "展开": { "classes": ["b8812f16", "a2f3d50e"] },
-              "隐藏": { "classes": ["b8812f16", "a2f3d50e", "_70b689f"] }
-            },
-            "children": [
-              {
-                "id": "sidebar-inner-header",
-                "selector": "div._262baab",
-                "children": [
-                  {
-                    "id": "sidebar-inner-header-logo",
-                    "selector": "div.e066abb8"
-                  },
-                  {
-                    "id": "sidebar-inner-header-actions",
-                    "selector": "div._23e1c55",
-                    "children": [
-                      {
-                        "id": "sidebar-inner-header-actions-search",
-                        "selector": "div.d05a0287"
-                      },
-                      {
-                        "id": "sidebar-inner-header-actions-collapse",
-                        "selector": "div._7d1f5e2"
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
-                "id": "sidebar-inner-history",
-                "selector": "div._3586175.ds-scroll-area",
-                "children": [
-                  {
-                    "id": "sidebar-inner-history-scroll",
-                    "selector": "div._6d215eb",
-                    "children": [
-                      {
-                        "id": "sidebar-inner-history-list",
-                        "selector": "div._77cdc67._8a693f3"
-                      },
-                      {
-                        "id": "sidebar-inner-history-scrollmarker",
-                        "selector": "div.de3d058c"
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
-                "id": "sidebar-inner-user",
-                "selector": "div._2afd28d",
-                "children": [
-                  {
-                    "id": "sidebar-inner-user-avatar",
-                    "selector": "div.ede5bc47"
-                  },
-                  {
-                    "id": "sidebar-inner-user-name",
-                    "selector": "div._9d8da05"
-                  },
-                  {
-                    "id": "sidebar-inner-user-settings",
-                    "selector": "div.ds-icon._39cc453"
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "id": "sidebar-handle",
-            "selector": "div.ca6d4be1",
-            "children": [
-              {
-                "id": "sidebar-handle-icon",
-                "selector": "div._6acebc2"
-              },
-              {
-                "id": "sidebar-handle-actions",
-                "selector": "div.e5bf614e",
-                "children": [
-                  {
-                    "id": "sidebar-handle-actions-spacer",
-                    "selector": "div.e5bf614e > div:nth-child(1)"
-                  },
-                  {
-                    "id": "sidebar-handle-actions-expand",
-                    "selector": "div.e5bf614e > div:nth-child(2)"
-                  },
-                  {
-                    "id": "sidebar-handle-actions-search",
-                    "selector": "div.e5bf614e > div:nth-child(3)"
-                  },
-                  {
-                    "id": "sidebar-handle-actions-newchat",
-                    "selector": "div.e5bf614e > div:nth-child(4)"
-                  }
-                ]
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "main-panel",
-        "selector": "div._7780f2e",
-        "children": [
-          {
-            "id": "main-content",
-            "selector": "div._765a5cd",
-            "refs": {
-              "已有会话": { "childCount": 4 },
-              "新建会话": { "childCount": 1 }
-            },
-            "children": [
-              {
-                "id": "main-content-title",
-                "selector": "div._2be88ba",
-                "refs": {
-                  "已有会话": { "classes": ["_2be88ba"] },
-                  "新建会话": { "classes": ["_2be88ba", "_1551317"] }
-                }
-              },
-              {
-                "id": "main-content-scrollbar",
-                "selector": "div.ds-scroll-area__gutters"
-              },
-              {
-                "id": "main-content-list",
-                "selector": "div._2bd7b35.ds-virtual-list.ds-virtual-list--printable",
-                "children": [
-                  {
-                    "id": "main-content-messages",
-                    "selector": "div.ds-virtual-list-items._6f2c522"
-                  },
-                  {
-                    "id": "main-content-gap",
-                    "selector": "div:nth-child(2)"
-                  },
-                  {
-                    "id": "main-content-input",
-                    "selector": "div._871cbca"
-                  }
-                ]
-              },
-              {
-                "id": "main-content-quicknav",
-                "selector": "div._189b4a0"
-              },
-              {
-                "id": "main-content-welcome",
-                "selector": "div._660ca72"
-              }
-            ]
-          }
-        ]
+  "parts": {
+    "root": {
+      "selector": "#root > div > div > div.c3ecdb44"
+    },
+    "sidebar": {
+      "selector": "div.dc04ec1d",
+      "refs": {
+        "展开": { "classes": ["dc04ec1d"] },
+        "收起": { "classes": ["dc04ec1d", "a02af2e6"] }
       }
-    ]
+    },
+    "sidebar-inner": {
+      "selector": "div.b8812f16.a2f3d50e",
+      "refs": {
+        "展开": { "classes": ["b8812f16", "a2f3d50e"] },
+        "隐藏": { "classes": ["b8812f16", "a2f3d50e", "_70b689f"] }
+      }
+    },
+    "sidebar-inner-header": {
+      "selector": "div._262baab"
+    },
+    "sidebar-inner-header-logo": {
+      "selector": "div.e066abb8"
+    },
+    "sidebar-inner-header-actions": {
+      "selector": "div._23e1c55"
+    },
+    "sidebar-inner-header-actions-search": {
+      "selector": "div.d05a0287"
+    },
+    "sidebar-inner-header-actions-collapse": {
+      "selector": "div._7d1f5e2"
+    },
+    "sidebar-inner-history": {
+      "selector": "div._3586175.ds-scroll-area"
+    },
+    "sidebar-inner-history-scroll": {
+      "selector": "div._6d215eb"
+    },
+    "sidebar-inner-history-list": {
+      "selector": "div._77cdc67._8a693f3"
+    },
+    "sidebar-inner-history-scrollmarker": {
+      "selector": "div.de3d058c"
+    },
+    "sidebar-inner-user": {
+      "selector": "div._2afd28d"
+    },
+    "sidebar-inner-user-avatar": {
+      "selector": "div.ede5bc47"
+    },
+    "sidebar-inner-user-name": {
+      "selector": "div._9d8da05"
+    },
+    "sidebar-inner-user-settings": {
+      "selector": "div.ds-icon._39cc453"
+    },
+    "sidebar-handle": {
+      "selector": "div.ca6d4be1"
+    },
+    "sidebar-handle-icon": {
+      "selector": "div._6acebc2"
+    },
+    "sidebar-handle-actions": {
+      "selector": "div.e5bf614e"
+    },
+    "sidebar-handle-actions-spacer": {
+      "selector": "div.e5bf614e > div:nth-child(1)"
+    },
+    "sidebar-handle-actions-expand": {
+      "selector": "div.e5bf614e > div:nth-child(2)"
+    },
+    "sidebar-handle-actions-search": {
+      "selector": "div.e5bf614e > div:nth-child(3)"
+    },
+    "sidebar-handle-actions-newchat": {
+      "selector": "div.e5bf614e > div:nth-child(4)"
+    },
+    "main-panel": {
+      "selector": "div._7780f2e"
+    },
+    "main-content": {
+      "selector": "div._765a5cd",
+      "refs": {
+        "已有会话": { "childCount": 4 },
+        "新建会话": { "childCount": 1 }
+      }
+    },
+    "main-content-title": {
+      "selector": "div._2be88ba",
+      "refs": {
+        "已有会话": { "classes": ["_2be88ba"] },
+        "新建会话": { "classes": ["_2be88ba", "_1551317"] }
+      }
+    },
+    "main-content-scrollbar": {
+      "selector": "div.ds-scroll-area__gutters"
+    },
+    "main-content-list": {
+      "selector": "div._2bd7b35.ds-virtual-list.ds-virtual-list--printable"
+    },
+    "main-content-messages": {
+      "selector": "div.ds-virtual-list-items._6f2c522"
+    },
+    "main-content-input-panel": {
+      "selector": "div._871cbca"
+    },
+    "main-content-config-bar": {
+      "selector": "div.d72636e2"
+    },
+    "main-content-input-body": {
+      "selector": "div.aaff8b8f"
+    },
+    "main-content-input-inner": {
+      "selector": "div._77cefa5",
+      "refs": {
+        "已有会话": { "classes": ["_77cefa5", "_3d616d3"] },
+        "新建会话": { "classes": ["_77cefa5", "_9996a53"] }
+      }
+    },
+    "main-content-input-core": {
+      "selector": "div._020ab5b"
+    },
+    "main-content-editor-area": {
+      "selector": "div._24fad49"
+    },
+    "main-content-bottom-bar": {
+      "selector": "div.ec4f5d61"
+    },
+    "main-content-send-bar": {
+      "selector": "div._0fcaa63"
+    },
+    "main-content-quicknav": {
+      "selector": "div._189b4a0"
+    },
+    "main-content-welcome-wrapper": {
+      "selector": "div._660ca72"
+    },
+    "main-content-welcome-content": {
+      "selector": "div._9a2f8e4"
+    },
+    "main-content-welcome-text": {
+      "selector": "div._5758a85"
+    },
+    "main-content-mode-select": {
+      "selector": "div.e362e944"
+    }
+  },
+
+  "scenes": {
+    "sidebar=展开, main-content=已有会话": {
+      "树": {
+        "root": ["sidebar", "main-panel"],
+        "sidebar": ["sidebar-inner"],
+        "sidebar-inner": ["sidebar-inner-header", "sidebar-inner-history", "sidebar-inner-user"],
+        "sidebar-inner-header": ["sidebar-inner-header-logo", "sidebar-inner-header-actions"],
+        "sidebar-inner-header-actions": ["sidebar-inner-header-actions-search", "sidebar-inner-header-actions-collapse"],
+        "sidebar-inner-history": ["sidebar-inner-history-scroll"],
+        "sidebar-inner-history-scroll": ["sidebar-inner-history-list", "sidebar-inner-history-scrollmarker"],
+        "sidebar-inner-user": ["sidebar-inner-user-avatar", "sidebar-inner-user-name", "sidebar-inner-user-settings"],
+        "main-panel": ["main-content"],
+        "main-content": ["main-content-title", "main-content-scrollbar", "main-content-list", "main-content-quicknav"],
+        "main-content-list": ["main-content-messages", "main-content-input-panel"],
+        "main-content-input-panel": ["main-content-config-bar", "main-content-input-body", "main-content-send-bar"],
+        "main-content-input-body": ["main-content-input-inner"],
+        "main-content-input-inner": ["main-content-input-core"],
+        "main-content-input-core": ["main-content-editor-area", "main-content-bottom-bar"]
+      }
+    },
+
+    "sidebar=展开, main-content=新建会话": {
+      "树": {
+        "root": ["sidebar", "main-panel"],
+        "sidebar": ["sidebar-inner"],
+        "sidebar-inner": ["sidebar-inner-header", "sidebar-inner-history", "sidebar-inner-user"],
+        "sidebar-inner-header": ["sidebar-inner-header-logo", "sidebar-inner-header-actions"],
+        "sidebar-inner-header-actions": ["sidebar-inner-header-actions-search", "sidebar-inner-header-actions-collapse"],
+        "sidebar-inner-history": ["sidebar-inner-history-scroll"],
+        "sidebar-inner-history-scroll": ["sidebar-inner-history-list", "sidebar-inner-history-scrollmarker"],
+        "sidebar-inner-user": ["sidebar-inner-user-avatar", "sidebar-inner-user-name", "sidebar-inner-user-settings"],
+        "main-panel": ["main-content"],
+        "main-content": ["main-content-welcome-wrapper"],
+        "main-content-welcome-wrapper": ["main-content-title", "main-content-welcome-content"],
+        "main-content-welcome-content": ["main-content-welcome-text", "main-content-mode-select", "main-content-input-body"],
+        "main-content-input-body": ["main-content-input-inner"],
+        "main-content-input-inner": ["main-content-input-core"],
+        "main-content-input-core": ["main-content-editor-area", "main-content-bottom-bar"]
+      }
+    },
+
+    "sidebar=收起, main-content=已有会话": {
+      "树": {
+        "root": ["sidebar", "main-panel"],
+        "sidebar": ["sidebar-inner", "sidebar-handle"],
+        "sidebar-inner": ["sidebar-inner-header", "sidebar-inner-history", "sidebar-inner-user"],
+        "sidebar-inner-header": ["sidebar-inner-header-logo", "sidebar-inner-header-actions"],
+        "sidebar-inner-header-actions": ["sidebar-inner-header-actions-search", "sidebar-inner-header-actions-collapse"],
+        "sidebar-inner-history": ["sidebar-inner-history-scroll"],
+        "sidebar-inner-history-scroll": ["sidebar-inner-history-list", "sidebar-inner-history-scrollmarker"],
+        "sidebar-inner-user": ["sidebar-inner-user-avatar", "sidebar-inner-user-name", "sidebar-inner-user-settings"],
+        "sidebar-handle": ["sidebar-handle-icon", "sidebar-handle-actions"],
+        "sidebar-handle-actions": ["sidebar-handle-actions-spacer", "sidebar-handle-actions-expand", "sidebar-handle-actions-search", "sidebar-handle-actions-newchat"],
+        "main-panel": ["main-content"],
+        "main-content": ["main-content-title", "main-content-scrollbar", "main-content-list", "main-content-quicknav"],
+        "main-content-list": ["main-content-messages", "main-content-input-panel"],
+        "main-content-input-panel": ["main-content-config-bar", "main-content-input-body", "main-content-send-bar"],
+        "main-content-input-body": ["main-content-input-inner"],
+        "main-content-input-inner": ["main-content-input-core"],
+        "main-content-input-core": ["main-content-editor-area", "main-content-bottom-bar"]
+      }
+    },
+
+    "sidebar=收起, main-content=新建会话": {
+      "树": {
+        "root": ["sidebar", "main-panel"],
+        "sidebar": ["sidebar-inner", "sidebar-handle"],
+        "sidebar-inner": ["sidebar-inner-header", "sidebar-inner-history", "sidebar-inner-user"],
+        "sidebar-inner-header": ["sidebar-inner-header-logo", "sidebar-inner-header-actions"],
+        "sidebar-inner-header-actions": ["sidebar-inner-header-actions-search", "sidebar-inner-header-actions-collapse"],
+        "sidebar-inner-history": ["sidebar-inner-history-scroll"],
+        "sidebar-inner-history-scroll": ["sidebar-inner-history-list", "sidebar-inner-history-scrollmarker"],
+        "sidebar-inner-user": ["sidebar-inner-user-avatar", "sidebar-inner-user-name", "sidebar-inner-user-settings"],
+        "sidebar-handle": ["sidebar-handle-icon", "sidebar-handle-actions"],
+        "sidebar-handle-actions": ["sidebar-handle-actions-spacer", "sidebar-handle-actions-expand", "sidebar-handle-actions-search", "sidebar-handle-actions-newchat"],
+        "main-panel": ["main-content"],
+        "main-content": ["main-content-welcome-wrapper"],
+        "main-content-welcome-wrapper": ["main-content-title", "main-content-welcome-content"],
+        "main-content-welcome-content": ["main-content-welcome-text", "main-content-mode-select", "main-content-input-body"],
+        "main-content-input-body": ["main-content-input-inner"],
+        "main-content-input-inner": ["main-content-input-core"],
+        "main-content-input-core": ["main-content-editor-area", "main-content-bottom-bar"]
+      }
+    }
   },
 
   "transitions": [
@@ -185,21 +246,21 @@
       "action": "click",
       "target": "div._7d1f5e2",
       "require": { "sidebar": "展开" },
-      "result": { "sidebar": "收起", "sidebar-inner": "隐藏", "sidebar-handle": "可见" }
+      "result": { "sidebar": "收起" }
     },
     {
       "id": "expand-sidebar-via-handle",
       "action": "click",
       "target": "div.e5bf614e > div:nth-child(2)",
       "require": { "sidebar": "收起" },
-      "result": { "sidebar": "展开", "sidebar-inner": "展开" }
+      "result": { "sidebar": "展开" }
     },
     {
       "id": "expand-sidebar-via-icon",
       "action": "click",
       "target": "div._6acebc2",
       "require": { "sidebar": "收起" },
-      "result": { "sidebar": "展开", "sidebar-inner": "展开" }
+      "result": { "sidebar": "展开" }
     }
   ]
 }
