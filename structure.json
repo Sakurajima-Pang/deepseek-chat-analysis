@@ -2,7 +2,7 @@
   "meta": {
     "updated": "2026-05-24",
     "viewport": "实际窗口大小（由用户手动最大化决定，1920x1080为参考）",
-    "schema": "v3.1 — 引入 _dynamic 字段处理动态 class（如 focused）"
+    "schema": "v3.1 — _dynamic 字段处理动态 class"
   },
 
   "parts": {
@@ -100,6 +100,15 @@
         "新建会话": { "classes": ["_2be88ba", "_1551317"] }
       }
     },
+    "main-content-title-left": {
+      "selector": "div.f8d1e4c0.the-header"
+    },
+    "main-content-title-center": {
+      "selector": "div._1aa2651.the-header"
+    },
+    "main-content-title-right": {
+      "selector": "div._57370c5"
+    },
     "main-content-scrollbar": {
       "selector": "div.ds-scroll-area__gutters"
     },
@@ -108,6 +117,30 @@
     },
     "main-content-messages": {
       "selector": "div.ds-virtual-list-items._6f2c522"
+    },
+    "main-content-msg-user": {
+      "selector": "div._9663006"
+    },
+    "main-content-msg-ai": {
+      "selector": "div._4f9bf79._43c05b5"
+    },
+    "main-content-msg-content": {
+      "selector": "div.ds-message._63c77b1"
+    },
+    "main-content-msg-thinking": {
+      "selector": "div._74c0879"
+    },
+    "main-content-msg-response": {
+      "selector": "div.ds-markdown.ds-assistant-message-main-content"
+    },
+    "main-content-msg-ai-actions": {
+      "selector": "div.ds-flex._0a3d93b"
+    },
+    "main-content-msg-user-text": {
+      "selector": "div.d29f3d7d.ds-message._63c77b1"
+    },
+    "main-content-msg-user-actions": {
+      "selector": "div._11d6b3a"
     },
     "main-content-input-panel": {
       "selector": "div._871cbca"
@@ -179,6 +212,12 @@
     "main-content-quicknav": {
       "selector": "div._189b4a0"
     },
+    "main-content-quicknav-spacer": {
+      "selector": "div._6ffc3c9"
+    },
+    "main-content-quicknav-scroll": {
+      "selector": "div._4ce999d"
+    },
     "main-content-welcome-wrapper": {
       "selector": "div._660ca72"
     },
@@ -190,6 +229,9 @@
     },
     "main-content-mode-select": {
       "selector": "div.e362e944"
+    },
+    "settings-popup": {
+      "selector": "[role=\"menu\"]"
     }
   },
 
@@ -206,6 +248,8 @@
         "sidebar-inner-user": ["sidebar-inner-user-avatar", "sidebar-inner-user-name", "sidebar-inner-user-settings"],
         "main-panel": ["main-content"],
         "main-content": ["main-content-title", "main-content-scrollbar", "main-content-list", "main-content-quicknav"],
+        "main-content-title": ["main-content-title-left", "main-content-title-center", "main-content-title-right"],
+        "main-content-quicknav": ["main-content-quicknav-spacer", "main-content-quicknav-scroll"],
         "main-content-list": ["main-content-messages", "main-content-input-panel"],
         "main-content-input-panel": ["main-content-config-bar", "main-content-input-body", "main-content-send-bar"],
         "main-content-input-body": ["main-content-input-inner"],
@@ -256,6 +300,8 @@
         "sidebar-handle-actions": ["sidebar-handle-actions-spacer", "sidebar-handle-actions-expand", "sidebar-handle-actions-search", "sidebar-handle-actions-newchat"],
         "main-panel": ["main-content"],
         "main-content": ["main-content-title", "main-content-scrollbar", "main-content-list", "main-content-quicknav"],
+        "main-content-title": ["main-content-title-left", "main-content-title-center", "main-content-title-right"],
+        "main-content-quicknav": ["main-content-quicknav-spacer", "main-content-quicknav-scroll"],
         "main-content-list": ["main-content-messages", "main-content-input-panel"],
         "main-content-input-panel": ["main-content-config-bar", "main-content-input-body", "main-content-send-bar"],
         "main-content-input-body": ["main-content-input-inner"],
