@@ -2,7 +2,7 @@
   "meta": {
     "updated": "2026-05-24",
     "viewport": "实际窗口大小（由用户手动最大化决定，1920x1080为参考）",
-    "schema": "v3.1 — _dynamic 字段处理动态 class"
+    "schema": "v3.4 — 修复: mode-radio/编辑模式/菜单关闭/nav-new-chat 选择器，基于 Playwright 实操校验"
   },
 
   "parts": {
@@ -107,7 +107,8 @@
       "selector": "div._1aa2651.the-header"
     },
     "main-content-title-right": {
-      "selector": "div._57370c5"
+      "selector": "div._57370c5",
+      "note": "role=button，点击可分享"
     },
     "main-content-scrollbar": {
       "selector": "div.ds-scroll-area__gutters"
@@ -130,17 +131,94 @@
     "main-content-msg-thinking": {
       "selector": "div._74c0879"
     },
+    "main-content-msg-thinking-header": {
+      "selector": "div._74c0879 > div:first-child",
+      "note": "点击可折叠/展开 thinking 内容"
+    },
+    "main-content-msg-thinking-content": {
+      "selector": "div._74c0879 > div:last-child"
+    },
     "main-content-msg-response": {
       "selector": "div.ds-markdown.ds-assistant-message-main-content"
     },
     "main-content-msg-ai-actions": {
-      "selector": "div.ds-flex._0a3d93b"
+      "selector": "div.ds-flex._965abe9",
+      "note": "AI 消息操作按钮容器，包含 5 个按钮"
+    },
+    "main-content-msg-ai-action-btn": {
+      "selector": "div.ds-flex._965abe9 [role='button']",
+      "note": "单个操作按钮，共 5 个: 复制/重新生成/点赞/点踩/更多"
     },
     "main-content-msg-user-text": {
       "selector": "div.d29f3d7d.ds-message._63c77b1"
     },
     "main-content-msg-user-actions": {
-      "selector": "div._11d6b3a"
+      "selector": "div._11d6b3a",
+      "note": "用户消息操作按钮容器，包含 2 个按钮"
+    },
+    "main-content-msg-user-action-btn": {
+      "selector": "div._11d6b3a [role='button']",
+      "note": "单个操作按钮，共 2 个: 复制/编辑"
+    },
+    "main-content-msg-user-action-copy": {
+      "selector": "div._11d6b3a [role='button']:nth-child(1)",
+      "note": "复制按钮"
+    },
+    "main-content-msg-user-action-edit": {
+      "selector": "div._11d6b3a [role='button']:nth-child(2)",
+      "note": "编辑按钮，点击进入编辑模式"
+    },
+    "main-content-msg-ai-action-copy": {
+      "selector": "div.ds-flex._965abe9 [role='button']:nth-child(1)",
+      "note": "复制按钮"
+    },
+    "main-content-msg-ai-action-regenerate": {
+      "selector": "div.ds-flex._965abe9 [role='button']:nth-child(2)",
+      "note": "重新生成按钮"
+    },
+    "main-content-msg-ai-action-like": {
+      "selector": "div.ds-flex._965abe9 [role='button']:nth-child(3)",
+      "note": "点赞按钮"
+    },
+    "main-content-msg-ai-action-dislike": {
+      "selector": "div.ds-flex._965abe9 [role='button']:nth-child(4)",
+      "note": "点踩按钮"
+    },
+    "main-content-msg-ai-action-share": {
+      "selector": "div.ds-flex._965abe9 [role='button']:nth-child(5)",
+      "note": "分享按钮，点击进入分享选择模式"
+    },
+    "edit-mode-container": {
+      "selector": "div._9663006._3111eee",
+      "note": "编辑模式容器，点击编辑按钮后用户消息容器增加 _3111eee 类"
+    },
+    "edit-mode-textarea": {
+      "selector": "div._9663006._3111eee textarea.de1201a8",
+      "note": "编辑模式的文本框"
+    },
+    "edit-mode-cancel": {
+      "selector": "div._9663006._3111eee .ds-basic-button--outlined",
+      "note": "编辑模式取消按钮（button 标签）"
+    },
+    "edit-mode-send": {
+      "selector": "div._9663006._3111eee .ds-basic-button--primary",
+      "note": "编辑模式发送按钮（div role=button）"
+    },
+    "share-mode-container": {
+      "selector": "div:has(> button:has-text('创建分享链接'))",
+      "note": "分享模式容器"
+    },
+    "share-mode-select-all": {
+      "selector": "div:has-text('全选')",
+      "note": "全选对话"
+    },
+    "share-mode-cancel": {
+      "selector": "button:has-text('取消')",
+      "note": "取消分享"
+    },
+    "share-mode-create-link": {
+      "selector": "button:has-text('创建分享链接')",
+      "note": "创建分享链接"
     },
     "main-content-input-panel": {
       "selector": "div._871cbca"
@@ -209,6 +287,10 @@
     "main-content-send-bar": {
       "selector": "div._0fcaa63"
     },
+    "main-content-disclaimer": {
+      "selector": "div._0fcaa63 + div",
+      "note": "AI 生成内容声明"
+    },
     "main-content-quicknav": {
       "selector": "div._189b4a0"
     },
@@ -230,8 +312,72 @@
     "main-content-mode-select": {
       "selector": "div.e362e944"
     },
+    "main-content-mode-quick": {
+      "selector": "[role='radio']:nth-child(2)",
+      "note": "快速模式单选按钮"
+    },
+    "main-content-mode-expert": {
+      "selector": "[role='radio']:nth-child(3)",
+      "note": "专家模式单选按钮"
+    },
     "settings-popup": {
-      "selector": "[role=\"menu\"]"
+      "selector": "[role='menu']"
+    },
+    "history-item-more-btn": {
+      "selector": "div._254829d [role='button']",
+      "note": "会话列表项 hover 时显示的操作按钮"
+    },
+    "history-item-dropdown": {
+      "selector": ".ds-dropdown-menu",
+      "note": "点击 more 按钮后弹出的菜单"
+    },
+    "history-item-dropdown-rename": {
+      "selector": ".ds-dropdown-menu-option:nth-child(1)",
+      "note": "重命名"
+    },
+    "history-item-dropdown-unpin": {
+      "selector": ".ds-dropdown-menu-option:nth-child(2)",
+      "note": "取消置顶/置顶"
+    },
+    "history-item-dropdown-share": {
+      "selector": ".ds-dropdown-menu-option:nth-child(3)",
+      "note": "分享"
+    },
+    "history-item-dropdown-delete": {
+      "selector": ".ds-dropdown-menu-option--error",
+      "note": "删除"
+    },
+    "settings-menu-download": {
+      "selector": "[role='menu'] > div:nth-child(1)"
+    },
+    "settings-menu-settings": {
+      "selector": "[role='menu'] > div:nth-child(2)"
+    },
+    "settings-menu-help": {
+      "selector": "[role='menu'] > div:nth-child(3)"
+    },
+    "settings-menu-logout": {
+      "selector": "[role='menu'] > div:nth-child(4)"
+    },
+    "history-group-pinned": {
+      "selector": "div._77cdc67._8a693f3 > div:nth-child(1)",
+      "note": "置顶分组"
+    },
+    "history-group-today": {
+      "selector": "div._77cdc67._8a693f3 > div:nth-child(2)",
+      "note": "今天分组"
+    },
+    "history-group-yesterday": {
+      "selector": "div._77cdc67._8a693f3 > div:nth-child(3)",
+      "note": "昨天分组"
+    },
+    "history-group-week": {
+      "selector": "div._77cdc67._8a693f3 > div:nth-child(4)",
+      "note": "7天内分组"
+    },
+    "history-group-month": {
+      "selector": "div._77cdc67._8a693f3 > div:nth-child(5)",
+      "note": "30天内分组"
     }
   },
 
@@ -245,12 +391,20 @@
         "sidebar-inner-header-actions": ["sidebar-inner-header-actions-search", "sidebar-inner-header-actions-collapse"],
         "sidebar-inner-history": ["sidebar-inner-history-scroll"],
         "sidebar-inner-history-scroll": ["sidebar-inner-history-list", "sidebar-inner-history-scrollmarker"],
+        "sidebar-inner-history-list": ["history-group-pinned", "history-group-today", "history-group-yesterday", "history-group-week", "history-group-month"],
         "sidebar-inner-user": ["sidebar-inner-user-avatar", "sidebar-inner-user-name", "sidebar-inner-user-settings"],
         "main-panel": ["main-content"],
         "main-content": ["main-content-title", "main-content-scrollbar", "main-content-list", "main-content-quicknav"],
         "main-content-title": ["main-content-title-left", "main-content-title-center", "main-content-title-right"],
         "main-content-quicknav": ["main-content-quicknav-spacer", "main-content-quicknav-scroll"],
         "main-content-list": ["main-content-messages", "main-content-input-panel"],
+        "main-content-messages": ["main-content-msg-user", "main-content-msg-ai"],
+        "main-content-msg-user": ["main-content-msg-user-text", "main-content-msg-user-actions"],
+        "main-content-msg-user-actions": ["main-content-msg-user-action-btn"],
+        "main-content-msg-ai": ["main-content-msg-content", "main-content-msg-ai-actions"],
+        "main-content-msg-content": ["main-content-msg-thinking", "main-content-msg-response"],
+        "main-content-msg-thinking": ["main-content-msg-thinking-header", "main-content-msg-thinking-content"],
+        "main-content-msg-ai-actions": ["main-content-msg-ai-action-btn"],
         "main-content-input-panel": ["main-content-config-bar", "main-content-input-body", "main-content-send-bar"],
         "main-content-input-body": ["main-content-input-inner"],
         "main-content-input-inner": ["main-content-input-core"],
@@ -259,6 +413,17 @@
         "main-content-bottom-bar": ["main-content-toggle-group", "main-content-send-area"],
         "main-content-toggle-group": ["main-content-deep-think", "main-content-search-toggle"],
         "main-content-send-area": ["main-content-send-btn"]
+      },
+      "动态组件": {
+        "hover-history-item": ["history-item-more-btn"],
+        "click-history-item-more": ["history-item-dropdown"],
+        "history-item-dropdown": ["history-item-dropdown-rename", "history-item-dropdown-unpin", "history-item-dropdown-share", "history-item-dropdown-delete"],
+        "click-user-settings": ["settings-popup"],
+        "settings-popup": ["settings-menu-download", "settings-menu-settings", "settings-menu-help", "settings-menu-logout"],
+        "click-user-msg-edit": ["edit-mode-container"],
+        "edit-mode-container": ["edit-mode-textarea", "edit-mode-cancel", "edit-mode-send"],
+        "click-ai-msg-share": ["share-mode-container"],
+        "share-mode-container": ["share-mode-select-all", "share-mode-cancel", "share-mode-create-link"]
       }
     },
 
@@ -271,11 +436,13 @@
         "sidebar-inner-header-actions": ["sidebar-inner-header-actions-search", "sidebar-inner-header-actions-collapse"],
         "sidebar-inner-history": ["sidebar-inner-history-scroll"],
         "sidebar-inner-history-scroll": ["sidebar-inner-history-list", "sidebar-inner-history-scrollmarker"],
+        "sidebar-inner-history-list": ["history-group-pinned", "history-group-today", "history-group-yesterday", "history-group-week", "history-group-month"],
         "sidebar-inner-user": ["sidebar-inner-user-avatar", "sidebar-inner-user-name", "sidebar-inner-user-settings"],
         "main-panel": ["main-content"],
         "main-content": ["main-content-welcome-wrapper"],
         "main-content-welcome-wrapper": ["main-content-title", "main-content-welcome-content"],
         "main-content-welcome-content": ["main-content-welcome-text", "main-content-mode-select", "main-content-input-body"],
+        "main-content-mode-select": ["main-content-mode-quick", "main-content-mode-expert"],
         "main-content-input-body": ["main-content-input-inner"],
         "main-content-input-inner": ["main-content-input-core"],
         "main-content-input-core": ["main-content-editor-area", "main-content-bottom-bar"],
@@ -283,6 +450,13 @@
         "main-content-bottom-bar": ["main-content-toggle-group", "main-content-send-area"],
         "main-content-toggle-group": ["main-content-deep-think", "main-content-search-toggle"],
         "main-content-send-area": ["main-content-send-btn"]
+      },
+      "动态组件": {
+        "hover-history-item": ["history-item-more-btn"],
+        "click-history-item-more": ["history-item-dropdown"],
+        "history-item-dropdown": ["history-item-dropdown-rename", "history-item-dropdown-unpin", "history-item-dropdown-share", "history-item-dropdown-delete"],
+        "click-user-settings": ["settings-popup"],
+        "settings-popup": ["settings-menu-download", "settings-menu-settings", "settings-menu-help", "settings-menu-logout"]
       }
     },
 
@@ -295,6 +469,7 @@
         "sidebar-inner-header-actions": ["sidebar-inner-header-actions-search", "sidebar-inner-header-actions-collapse"],
         "sidebar-inner-history": ["sidebar-inner-history-scroll"],
         "sidebar-inner-history-scroll": ["sidebar-inner-history-list", "sidebar-inner-history-scrollmarker"],
+        "sidebar-inner-history-list": ["history-group-pinned", "history-group-today", "history-group-yesterday", "history-group-week", "history-group-month"],
         "sidebar-inner-user": ["sidebar-inner-user-avatar", "sidebar-inner-user-name", "sidebar-inner-user-settings"],
         "sidebar-handle": ["sidebar-handle-icon", "sidebar-handle-actions"],
         "sidebar-handle-actions": ["sidebar-handle-actions-spacer", "sidebar-handle-actions-expand", "sidebar-handle-actions-search", "sidebar-handle-actions-newchat"],
@@ -303,6 +478,13 @@
         "main-content-title": ["main-content-title-left", "main-content-title-center", "main-content-title-right"],
         "main-content-quicknav": ["main-content-quicknav-spacer", "main-content-quicknav-scroll"],
         "main-content-list": ["main-content-messages", "main-content-input-panel"],
+        "main-content-messages": ["main-content-msg-user", "main-content-msg-ai"],
+        "main-content-msg-user": ["main-content-msg-user-text", "main-content-msg-user-actions"],
+        "main-content-msg-user-actions": ["main-content-msg-user-action-btn"],
+        "main-content-msg-ai": ["main-content-msg-content", "main-content-msg-ai-actions"],
+        "main-content-msg-content": ["main-content-msg-thinking", "main-content-msg-response"],
+        "main-content-msg-thinking": ["main-content-msg-thinking-header", "main-content-msg-thinking-content"],
+        "main-content-msg-ai-actions": ["main-content-msg-ai-action-btn"],
         "main-content-input-panel": ["main-content-config-bar", "main-content-input-body", "main-content-send-bar"],
         "main-content-input-body": ["main-content-input-inner"],
         "main-content-input-inner": ["main-content-input-core"],
@@ -311,6 +493,15 @@
         "main-content-bottom-bar": ["main-content-toggle-group", "main-content-send-area"],
         "main-content-toggle-group": ["main-content-deep-think", "main-content-search-toggle"],
         "main-content-send-area": ["main-content-send-btn"]
+      },
+      "动态组件": {
+        "hover-history-item": ["history-item-more-btn"],
+        "click-history-item-more": ["history-item-dropdown"],
+        "history-item-dropdown": ["history-item-dropdown-rename", "history-item-dropdown-unpin", "history-item-dropdown-share", "history-item-dropdown-delete"],
+        "click-user-msg-edit": ["edit-mode-container"],
+        "edit-mode-container": ["edit-mode-textarea", "edit-mode-cancel", "edit-mode-send"],
+        "click-ai-msg-share": ["share-mode-container"],
+        "share-mode-container": ["share-mode-select-all", "share-mode-cancel", "share-mode-create-link"]
       }
     },
 
@@ -323,6 +514,7 @@
         "sidebar-inner-header-actions": ["sidebar-inner-header-actions-search", "sidebar-inner-header-actions-collapse"],
         "sidebar-inner-history": ["sidebar-inner-history-scroll"],
         "sidebar-inner-history-scroll": ["sidebar-inner-history-list", "sidebar-inner-history-scrollmarker"],
+        "sidebar-inner-history-list": ["history-group-pinned", "history-group-today", "history-group-yesterday", "history-group-week", "history-group-month"],
         "sidebar-inner-user": ["sidebar-inner-user-avatar", "sidebar-inner-user-name", "sidebar-inner-user-settings"],
         "sidebar-handle": ["sidebar-handle-icon", "sidebar-handle-actions"],
         "sidebar-handle-actions": ["sidebar-handle-actions-spacer", "sidebar-handle-actions-expand", "sidebar-handle-actions-search", "sidebar-handle-actions-newchat"],
@@ -330,6 +522,7 @@
         "main-content": ["main-content-welcome-wrapper"],
         "main-content-welcome-wrapper": ["main-content-title", "main-content-welcome-content"],
         "main-content-welcome-content": ["main-content-welcome-text", "main-content-mode-select", "main-content-input-body"],
+        "main-content-mode-select": ["main-content-mode-quick", "main-content-mode-expert"],
         "main-content-input-body": ["main-content-input-inner"],
         "main-content-input-inner": ["main-content-input-core"],
         "main-content-input-core": ["main-content-editor-area", "main-content-bottom-bar"],
@@ -337,6 +530,11 @@
         "main-content-bottom-bar": ["main-content-toggle-group", "main-content-send-area"],
         "main-content-toggle-group": ["main-content-deep-think", "main-content-search-toggle"],
         "main-content-send-area": ["main-content-send-btn"]
+      },
+      "动态组件": {
+        "hover-history-item": ["history-item-more-btn"],
+        "click-history-item-more": ["history-item-dropdown"],
+        "history-item-dropdown": ["history-item-dropdown-rename", "history-item-dropdown-unpin", "history-item-dropdown-share", "history-item-dropdown-delete"]
       }
     }
   },
@@ -362,6 +560,164 @@
       "target": "div._6acebc2",
       "require": { "sidebar": "收起" },
       "result": { "sidebar": "展开" }
+    },
+    {
+      "id": "open-settings-menu",
+      "action": "click",
+      "target": "div.ds-icon._39cc453",
+      "require": {},
+      "result": { "settings-popup": "打开" }
+    },
+    {
+      "id": "close-settings-menu",
+      "action": "click",
+      "target": "div._7780f2e",
+      "require": { "settings-popup": "打开" },
+      "note": "Escape 实测无效，点击主面板区域关闭菜单",
+      "result": { "settings-popup": "关闭" }
+    },
+    {
+      "id": "open-history-item-menu",
+      "action": "click",
+      "target": "div._254829d [role='button']",
+      "require": {},
+      "result": { "history-item-dropdown": "打开" }
+    },
+    {
+      "id": "close-history-item-menu",
+      "action": "click",
+      "target": "div._7780f2e",
+      "require": { "history-item-dropdown": "打开" },
+      "note": "Escape 实测无效，点击主面板区域关闭菜单",
+      "result": { "history-item-dropdown": "关闭" }
+    },
+    {
+      "id": "navigate-to-existing-chat",
+      "action": "click",
+      "target": "div._77cdc67._8a693f3 a",
+      "note": "匹配所有历史聊天链接（~100个），需用 .first() 选取第一个",
+      "require": { "main-content": "新建会话" },
+      "result": { "main-content": "已有会话" }
+    },
+    {
+      "id": "navigate-to-new-chat",
+      "action": "click",
+      "target": "div._5a8ac7a.a084f19e",
+      "require": { "main-content": "已有会话" },
+      "result": { "main-content": "新建会话" }
+    },
+    {
+      "id": "toggle-deep-think",
+      "action": "click",
+      "target": "div._58b31c9 > div:nth-child(1)",
+      "require": {},
+      "result": { "deep-think": "切换" }
+    },
+    {
+      "id": "toggle-search",
+      "action": "click",
+      "target": "div._58b31c9 > div:nth-child(2)",
+      "require": {},
+      "result": { "search": "切换" }
+    },
+    {
+      "id": "toggle-thinking",
+      "action": "click",
+      "target": "div._74c0879 > div:first-child",
+      "require": {},
+      "result": { "thinking": "折叠/展开" }
+    },
+    {
+      "id": "switch-mode-quick",
+      "action": "click",
+      "target": "[role='radio']:nth-child(1)",
+      "require": { "main-content": "新建会话" },
+      "result": { "mode": "快速模式" }
+    },
+    {
+      "id": "switch-mode-expert",
+      "action": "click",
+      "target": "[role='radio']:nth-child(2)",
+      "require": { "main-content": "新建会话" },
+      "result": { "mode": "专家模式" }
+    },
+    {
+      "id": "enter-edit-mode",
+      "action": "click",
+      "target": "div._11d6b3a [role='button']:nth-child(2)",
+      "require": {},
+      "result": { "edit-mode": "打开" }
+    },
+    {
+      "id": "cancel-edit-mode",
+      "action": "click",
+      "target": "div._9663006._3111eee .ds-basic-button--outlined",
+      "require": { "edit-mode": "打开" },
+      "result": { "edit-mode": "关闭" }
+    },
+    {
+      "id": "submit-edit",
+      "action": "click",
+      "target": "div._9663006._3111eee .ds-basic-button--primary",
+      "require": { "edit-mode": "打开" },
+      "note": "发送按钮为 div role=button，class ds-basic-button--primary",
+      "result": { "edit-mode": "关闭", "message": "已编辑" }
+    },
+    {
+      "id": "enter-share-mode",
+      "action": "click",
+      "target": "div.ds-flex._965abe9 [role='button']:nth-child(5)",
+      "require": {},
+      "result": { "share-mode": "打开" }
+    },
+    {
+      "id": "cancel-share-mode",
+      "action": "click",
+      "target": "button:has-text('取消')",
+      "require": { "share-mode": "打开" },
+      "result": { "share-mode": "关闭" }
+    },
+    {
+      "id": "create-share-link",
+      "action": "click",
+      "target": "button:has-text('创建分享链接')",
+      "require": { "share-mode": "打开" },
+      "result": { "share-mode": "关闭", "share-link": "已创建" }
+    },
+    {
+      "id": "ai-copy",
+      "action": "click",
+      "target": "div.ds-flex._965abe9 [role='button']:nth-child(1)",
+      "require": {},
+      "result": { "clipboard": "已复制" }
+    },
+    {
+      "id": "ai-regenerate",
+      "action": "click",
+      "target": "div.ds-flex._965abe9 [role='button']:nth-child(2)",
+      "require": {},
+      "result": { "message": "重新生成中" }
+    },
+    {
+      "id": "ai-like",
+      "action": "click",
+      "target": "div.ds-flex._965abe9 [role='button']:nth-child(3)",
+      "require": {},
+      "result": { "feedback": "已点赞" }
+    },
+    {
+      "id": "ai-dislike",
+      "action": "click",
+      "target": "div.ds-flex._965abe9 [role='button']:nth-child(4)",
+      "require": {},
+      "result": { "feedback": "已点踩" }
+    },
+    {
+      "id": "user-copy",
+      "action": "click",
+      "target": "div._11d6b3a [role='button']:nth-child(1)",
+      "require": {},
+      "result": { "clipboard": "已复制" }
     }
   ]
 }
