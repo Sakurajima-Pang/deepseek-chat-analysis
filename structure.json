@@ -1,8 +1,8 @@
 {
   "meta": {
-    "updated": "2026-05-14",
+    "updated": "2026-05-24",
     "viewport": "实际窗口大小（由用户手动最大化决定，1920x1080为参考）",
-    "schema": "v3 — parts(零件字典) + scenes(场景树) + transitions(交互)"
+    "schema": "v3.1 — 引入 _dynamic 字段处理动态 class（如 focused）"
   },
 
   "parts": {
@@ -121,8 +121,8 @@
     "main-content-input-inner": {
       "selector": "div._77cefa5",
       "refs": {
-        "已有会话": { "classes": ["_77cefa5", "_3d616d3"] },
-        "新建会话": { "classes": ["_77cefa5", "_9996a53"] }
+        "已有会话": { "classes": ["_77cefa5", "_3d616d3"], "_dynamic": ["focused"] },
+        "新建会话": { "classes": ["_77cefa5", "_9996a53"], "_dynamic": ["focused"] }
       }
     },
     "main-content-input-core": {
@@ -144,15 +144,18 @@
     "main-content-bottom-bar": {
       "selector": "div.ec4f5d61"
     },
+    "main-content-toggle-group": {
+      "selector": "div._58b31c9"
+    },
     "main-content-deep-think": {
-      "selector": "div.ec4f5d61 > div:nth-child(1)",
+      "selector": "div._58b31c9 > div:nth-child(1)",
       "refs": {
         "开启": { "classes": ["ds-atom-button", "f79352dc", "ds-toggle-button", "ds-toggle-button--selected", "ds-toggle-button--md"] },
         "关闭": { "classes": ["ds-atom-button", "f79352dc", "ds-toggle-button", "ds-toggle-button--md"] }
       }
     },
     "main-content-search-toggle": {
-      "selector": "div.ec4f5d61 > div:nth-child(2)",
+      "selector": "div._58b31c9 > div:nth-child(2)",
       "refs": {
         "开启": { "classes": ["ds-atom-button", "f79352dc", "ds-toggle-button", "ds-toggle-button--selected", "ds-toggle-button--md"] },
         "关闭": { "classes": ["ds-atom-button", "f79352dc", "ds-toggle-button", "ds-toggle-button--md"] }
@@ -164,8 +167,10 @@
     "main-content-send-btn": {
       "selector": "div.bf38813a [role=\"button\"]",
       "refs": {
-        "可发送": { "classes": ["_52c986b", "ds-icon-button", "ds-icon-button--l", "ds-icon-button--sizing-container"] },
-        "不可发送": { "classes": ["_52c986b", "bd74640a", "ds-icon-button", "ds-icon-button--l", "ds-icon-button--sizing-container", "ds-icon-button--disabled"] }
+        "可发送-已有会话": { "classes": ["_52c986b", "ds-icon-button", "ds-icon-button--l", "ds-icon-button--sizing-container"] },
+        "不可发送-已有会话": { "classes": ["_52c986b", "bd74640a", "ds-icon-button", "ds-icon-button--l", "ds-icon-button--sizing-container", "ds-icon-button--disabled"] },
+        "可发送-新建会话": { "classes": ["f02f0e25", "ds-icon-button", "ds-icon-button--l", "ds-icon-button--sizing-container"] },
+        "不可发送-新建会话": { "classes": ["f02f0e25", "bd74640a", "ds-icon-button", "ds-icon-button--l", "ds-icon-button--sizing-container", "ds-icon-button--disabled"] }
       }
     },
     "main-content-send-bar": {
@@ -207,7 +212,8 @@
         "main-content-input-inner": ["main-content-input-core"],
         "main-content-input-core": ["main-content-editor-area", "main-content-bottom-bar"],
         "main-content-editor-area": ["main-content-input-textarea", "main-content-input-mirror"],
-        "main-content-bottom-bar": ["main-content-deep-think", "main-content-search-toggle", "main-content-send-area"],
+        "main-content-bottom-bar": ["main-content-toggle-group", "main-content-send-area"],
+        "main-content-toggle-group": ["main-content-deep-think", "main-content-search-toggle"],
         "main-content-send-area": ["main-content-send-btn"]
       }
     },
@@ -230,7 +236,8 @@
         "main-content-input-inner": ["main-content-input-core"],
         "main-content-input-core": ["main-content-editor-area", "main-content-bottom-bar"],
         "main-content-editor-area": ["main-content-input-textarea", "main-content-input-mirror"],
-        "main-content-bottom-bar": ["main-content-deep-think", "main-content-search-toggle", "main-content-send-area"],
+        "main-content-bottom-bar": ["main-content-toggle-group", "main-content-send-area"],
+        "main-content-toggle-group": ["main-content-deep-think", "main-content-search-toggle"],
         "main-content-send-area": ["main-content-send-btn"]
       }
     },
@@ -255,7 +262,8 @@
         "main-content-input-inner": ["main-content-input-core"],
         "main-content-input-core": ["main-content-editor-area", "main-content-bottom-bar"],
         "main-content-editor-area": ["main-content-input-textarea", "main-content-input-mirror"],
-        "main-content-bottom-bar": ["main-content-deep-think", "main-content-search-toggle", "main-content-send-area"],
+        "main-content-bottom-bar": ["main-content-toggle-group", "main-content-send-area"],
+        "main-content-toggle-group": ["main-content-deep-think", "main-content-search-toggle"],
         "main-content-send-area": ["main-content-send-btn"]
       }
     },
@@ -280,7 +288,8 @@
         "main-content-input-inner": ["main-content-input-core"],
         "main-content-input-core": ["main-content-editor-area", "main-content-bottom-bar"],
         "main-content-editor-area": ["main-content-input-textarea", "main-content-input-mirror"],
-        "main-content-bottom-bar": ["main-content-deep-think", "main-content-search-toggle", "main-content-send-area"],
+        "main-content-bottom-bar": ["main-content-toggle-group", "main-content-send-area"],
+        "main-content-toggle-group": ["main-content-deep-think", "main-content-search-toggle"],
         "main-content-send-area": ["main-content-send-btn"]
       }
     }
